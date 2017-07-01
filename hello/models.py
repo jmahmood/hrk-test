@@ -40,9 +40,6 @@ class Birthday(models.Model):
 
         cmp_bd = date(cmp_bd_year, cmp_bd_month, cmp_bd_day)
 
-        logging.warning(cmp_bd)
-        logging.warning(next_bd)
-
         if next_bd == cmp_bd:
             return 0
 
