@@ -3,13 +3,8 @@ from datetime import date
 import datetime
 import logging
 
-# Create your models here.
-class Greeting(models.Model):
-    when = models.DateTimeField('date created', auto_now_add=True)
-
-
-# Create your models here.
 class Birthday(models.Model):
+    """Celebs and their birthdays!"""
     realname = models.CharField(default='', max_length=255)
     bd = models.DateField('Birthday')
 
