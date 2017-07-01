@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 import logging
 
+from django.views.decorators.csrf import csrf_exempt
+
 from .models import Birthday
 
 
@@ -13,6 +15,7 @@ def index(request):
     return HttpResponse('<ul>' + "\n".join(sorted_birthday_output) + '</ul>')
 
 
+@csrf_exempt
 def log(request):
     logging.warning(request)
     if request.method == 'POST':
@@ -20,4 +23,4 @@ def log(request):
     else:
         logging.warning("Invalid get or other kind of request")
 
-    return HttpResponse("hello world")
+    return HttpResponse("")
