@@ -15,9 +15,8 @@ def index(request):
 
 def log(request):
     if request.method == 'POST':
-        logging.warning("Remote post received")
-        logging.warning(request.POST)
-
+        logging.warning("Hello World")
+        logging.warning(request)
     else:
         logging.warning("Invalid get or other kind of request")
 
