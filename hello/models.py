@@ -9,3 +9,8 @@ class Greeting(models.Model):
 class Birthday(models.Model):
     realname = models.CharField(default='', max_length=255)
     bd = models.DateField('Birthday')
+
+
+class TrueBirthday(models.Model):
+    realname = models.CharField(default='', max_length=255)
+    bd = models.DateField('Birthday')
