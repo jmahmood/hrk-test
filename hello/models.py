@@ -22,23 +22,24 @@ class Birthday(models.Model):
         next_bd_month = self.bd.month
         next_bd_day = self.bd.day
 
-        if (next_bd_month < current_month or (next_bd_month == current_month and next_bd_day > current_date)):
+        if (next_bd_month < current_month or (next_bd_month == current_month and next_bd_day < current_date)):
             next_bd_year = current_year + 1
 
         next_bd = date(next_bd_year, next_bd_month, next_bd_day)
-        logging.warning(next_bd)
-        logging.warning(self.bd.month)
-        logging.warning(self.bd.day)
 
 
         cmp_bd_year = current_year
         cmp_bd_month = other.bd.month
         cmp_bd_day = other.bd.day
 
-        if (cmp_bd_month < current_month or (cmp_bd_month == current_month and cmp_bd_day > current_date)):
+        if (cmp_bd_month < current_month or (cmp_bd_month == current_month and cmp_bd_day < current_date)):
             cmp_bd_year = current_year + 1
 
         cmp_bd = date(cmp_bd_year, cmp_bd_month, cmp_bd_day)
+
+        logging.warning("Comparing dates")
+        logging.warning(next_bd)
+        logging.warning(cmp_bd)
 
         if next_bd == cmp_bd:
             return 0
