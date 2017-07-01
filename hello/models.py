@@ -7,5 +7,5 @@ class Greeting(models.Model):
 
 # Create your models here.
 class Birthday(models.Model):
-    name = models.DateField('Birthday')
+    name = models.CharField(max_length=255)
     bd = models.DateField('Birthday')
