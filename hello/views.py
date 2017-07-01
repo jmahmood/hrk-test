@@ -5,6 +5,7 @@ import logging
 
 from .models import Birthday
 
+
 def index(request):
     q = Birthday.objects.all()
     sorted_birthdays = sorted(q)
@@ -14,12 +15,12 @@ def index(request):
     return HttpResponse('<ul>' + "\n".join(sorted_birthday_output) + '</ul>')
 
 
-def db(request):
+def log(request):
+    if request.method == 'POST':
+        logging.warning("Remote post received")
+        logging.warning(request.POST)
 
-    greeting = Greeting()
-    greeting.save()
+    else:
+        logging.warning("Invalid get or other kind of request")
 
-    greetings = Greeting.objects.all()
-
-    return render(request, 'db.html', {'greetings': greetings})
-
+    return HttpResponse("hello world")
