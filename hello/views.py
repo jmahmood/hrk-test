@@ -2,13 +2,14 @@ import requests
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import Greeting
+from .models import Birthday
 
 def index(request):
-    q = Greeting.objects.all()
-    for f in q:
-        print f
-    return HttpResponse('<pre>' + q[0] + '</pre>')
+    q = Birthday.objects.all()
+    output = ["<li>{0} - {1}</li>".format(f.realname, f.bd) for f in q]
+    output2 = ["<li>{0} - {1}</li>".format(f.realname, f.bd) for f in sorted(q)]
+
+    return HttpResponse('<ul>' + "\n".join(output2) + '</ul>')
 
 
 def db(request):
