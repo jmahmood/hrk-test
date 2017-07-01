@@ -17,9 +17,7 @@ def index(request):
 
 @csrf_exempt
 def log(request):
-    logging.warning(request)
-    logging.warning(request.get_host())
-    if request.method == 'POST':
-        logging.warning("Hello World")
+    if request.method == 'POST' and request.get_host() == "still-basin-26156.herokuapp.com":
+        logging.warning("Hello World (From still-basin-26156.herokuapp.com)")
 
     return HttpResponse("")
