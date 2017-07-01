@@ -18,9 +18,8 @@ def index(request):
 @csrf_exempt
 def log(request):
     logging.warning(request)
+    logging.warning(request.get_host())
     if request.method == 'POST':
         logging.warning("Hello World")
-    else:
-        logging.warning("Invalid get or other kind of request")
 
     return HttpResponse("")
