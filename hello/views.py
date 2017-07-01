@@ -14,9 +14,9 @@ def index(request):
 
 
 def log(request):
+    logging.warning(request)
     if request.method == 'POST':
         logging.warning("Hello World")
-        logging.warning(request)
     else:
         logging.warning("Invalid get or other kind of request")
 
