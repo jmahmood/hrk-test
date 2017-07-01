@@ -32,10 +32,6 @@ class Birthday(models.Model):
 
         cmp_bd = date(cmp_bd_year, cmp_bd_month, cmp_bd_day)
 
-        logging.warning("Comparing dates")
-        logging.warning(next_bd)
-        logging.warning(cmp_bd)
-
         if next_bd == cmp_bd:
             return 0
 
