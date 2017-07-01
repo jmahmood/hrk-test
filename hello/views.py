@@ -7,7 +7,7 @@ from .models import Greeting
 def index(request):
     q = Greeting.objects.all()
     for f in q:
-        print(f)
+        print f
     return HttpResponse('<pre>' + q[0] + '</pre>')
 
 
