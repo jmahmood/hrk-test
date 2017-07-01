@@ -5,9 +5,10 @@ from django.http import HttpResponse
 from .models import Greeting
 
 def index(request):
-    r = requests.get('http://httpbin.org/status/418')
-    print(r.text)
-    return HttpResponse('<pre>' + r.text + '</pre>')
+    q = Greeting.objects.all()
+    for f in q:
+        print f
+    return HttpResponse('<pre>' + q[0] + '</pre>')
 
 
 def db(request):
