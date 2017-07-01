@@ -7,11 +7,11 @@ from .models import Birthday
 
 def index(request):
     q = Birthday.objects.all()
-    output = ["<li>{0} - {1}</li>".format(f.realname, f.bd) for f in q]
-    output2 = ["<li>{0} - {1}</li>".format(f.realname, f.bd) for f in sorted(q)]
+    sorted_output = ["<li>{0} - {1}</li>".format(f.realname, f.bd) for f in sorted(q)]
 
-    logging.warning(output2[0])
-    return HttpResponse('<ul>' + "\n".join(output2) + '</ul>')
+    logging.warning("Most Recent Birthday: ")
+    logging.warning(sorted_output[0])
+    return HttpResponse('<ul>' + "\n".join(sorted_output) + '</ul>')
 
 
 def db(request):
